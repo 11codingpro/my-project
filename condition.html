@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving License Eligibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+    
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+        }
+    </style>
+    </head>
+    
+    <body>
+        <h1>Driving License Eligibility</h1>
+        <p>Click the button below to check your driving license eligibility:</p>
+        <button onclick="checkEligibility()">Check Eligibility</button>
+        <div id="output"></div>
+    
+        <script>
+            function checkEligibility() {
+                
+                let age = prompt("Please enter your age:  ");
+
+                let output = "";
+                if (age === null || age === "") {
+                    output = "You didn't enter your age.";
+                } else if (isNaN(age) || age <= 0) {
+                    output = "Invalid age input. Please enter a positive number.";
+                } else if (age < 16) {
+                    output = "You are too young to apply for a driving license.";
+                } else if (age >= 16 && age < 18) {
+                    output = "You can apply for a learner's permit.";
+                } else if (age >= 18) {
+
+                    output = "You are eligible to apply for a full driving license.";
+                } else {
+                    output = "Invalid input.";
+                }
+                document.getElementById("output").innerText = output;
+            }
+        </script>
+    </body>
+    
+    </html>
